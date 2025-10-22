@@ -11,7 +11,7 @@ class RoleSeeder extends Seeder
 {
     /**
      * Run the database seeds.
-     */11
+     */
     public function run(): void
     {
         $seedRoles = [
