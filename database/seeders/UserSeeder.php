@@ -90,9 +90,8 @@ class UserSeeder extends Seeder
             );
 
             // Uncomment this line when using Spatie Permissions
-            $user->assignRoles($roles);
-            $user->assignPermissions($permissions);
-
+            $user->assignRole($roles);
+            $user->givePermissionTo($permissions);
         }
 
         // Uncomment the line below to create (10) randomly named users using the User Factory.
