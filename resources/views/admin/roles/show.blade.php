@@ -54,7 +54,7 @@
                 <td class="w-5/6 border-b border-b-neutral-200 p-1 flex flex-wrap gap-1 min-h-8">
 
                     @forelse($role->permissions as $permission)
-                        <span class="inline-block rounded-full bg-neutral-500 text-black">
+                        <span class="text-sm px-2 inline-block rounded-full bg-black text-neutral-100">
                         {{ $permission->name }}
                         </span>
                     @empty

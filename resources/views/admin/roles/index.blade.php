@@ -11,6 +11,7 @@
 
             <h3 class="text-2xl font-bold text-zinc-700 grow">
                 <a href="{{ route('admin.roles.index') }}" class="hover:text-zinc-500">
+                    <i class="fa-solid fa-user-shield pr-2"></i>
                     {{__('Roles')}}
                 </a>
             </h3>
@@ -28,6 +29,7 @@
                 <thead class="sticky top-0 bg-zinc-700 ltr:text-left rtl:text-right">
                 <tr class="*:font-medium *:text-white">
                     <th class="px-3 py-2 whitespace-nowrap">Role</th>
+                    <th class="px-3 py-2 whitespace-nowrap">Permissions</th>
                     <th class="px-3 py-2 whitespace-nowrap">Protecting</th>
                     <th class="px-3 py-2 whitespace-nowrap">Actions</th>
                 </tr>
@@ -42,9 +44,13 @@
                         </td>
 
                         <td class="px-3 py-1 whitespace-nowrap w-auto">
+                                {{ $role->permissions()->get()->count() }}
+                        </td>
+
+                        <td class="px-3 py-1 whitespace-nowrap w-auto">
                             <span class="text-xs rounded-full bg-gray-700 p-0.5 px-2 text-gray-200">
-                                <span class="">{{ $role->guard_name }}</span>
-                            </span>
+                                    {{ $role->guard_name }}
+                                </span>
                         </td>
 
                         <td class="px-3 py-1 whitespace-nowrap flex gap-2 w-full">

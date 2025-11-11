@@ -7,10 +7,19 @@
 
     <section class="py-12 mx-12 space-y-4">
 
-        <header>
+        <header class="flex justify-between gap-4">
             <h3 class="text-2xl font-bold text-zinc-700">
-                {{__('Permissions')}}
+                <a href="{{ route('admin.roles.index') }}" class="hover:text-zinc-500">
+                    <i class="fa-solid fa-file-shield pr-2"></i>
+                    {{__('Permissions')}}
+                </a>
             </h3>
+
+            <a href="{{ route('admin.roles.index') }}"
+               class="hover:bg-blue-500 hover:text-white transition border p-2 text-center rounded">
+                <i class="fa-solid fa-user-plus"></i>
+                Back to Roles
+            </a>
         </header>
 
         <div class="flex flex-1 w-full max-h-min overflow-x-auto">

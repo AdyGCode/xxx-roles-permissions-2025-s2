@@ -3,17 +3,35 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controllers\HasMiddleware;
+use Illuminate\Routing\Controllers\Middleware;
+
 use Spatie\Permission\Models\Permission;
 
-class PermissionManagementController extends Controller
+class PermissionManagementController extends Controller implements HasMiddleware
 {
+
+
+    public static function middleware(): array
+    {
+        return [
+            new Middleware('permission:browse-permission|read-permission|edit-permission|add-permission|delete-permission',
+                only: ['index', 'show',]),
+            new Middleware('permission:add-permission', only: ['create', 'store',]),
+            new Middleware('permission:edit-permission', only: ['edit', 'update',]),
+            new Middleware('permission:delete-permission', only: ['delete', 'destroy',]),
+        ];
+    }
+
+
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $permissions = Permission::paginate(10);
+        $permissions = Permission::orderBy('name')->paginate(10);
         return view('admin.permissions.index')
             ->with('permissions', $permissions);
     }
@@ -23,7 +41,8 @@ class PermissionManagementController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.permissions.not-implemented')
+            ->with('actionName', 'Add & Store');
     }
 
     /**
@@ -31,7 +50,8 @@ class PermissionManagementController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return view('admin.permissions.not-implemented')
+            ->with('actionName', 'Add & Store');
     }
 
     /**
@@ -39,7 +59,8 @@ class PermissionManagementController extends Controller
      */
     public function show(string $id)
     {
-        //
+        return view('admin.permissions.not-implemented')
+            ->with('actionName', 'Show');
     }
 
     /**
@@ -47,7 +68,8 @@ class PermissionManagementController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        return view('admin.permissions.not-implemented')
+            ->with('actionName', 'Edit & Update');
     }
 
     /**
@@ -55,7 +77,8 @@ class PermissionManagementController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        return view('admin.permissions.not-implemented')
+            ->with('actionName', 'Edit & Update');
     }
 
     /**
@@ -63,6 +86,7 @@ class PermissionManagementController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        return view('admin.permissions.not-implemented')
+            ->with('actionName', 'Delete & Destroy');
     }
 }

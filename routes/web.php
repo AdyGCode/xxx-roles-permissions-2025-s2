@@ -25,7 +25,6 @@ Route::middleware(['auth', 'verified'])
 
         Route::get('users', [AdminController::class, 'users'])->name('users');
 
-
         Route::middleware(['auth', 'verified', 'role:admin'])
             ->group(function () {
 
@@ -35,8 +34,11 @@ Route::middleware(['auth', 'verified'])
 
                 Route::get('roles/{role}/delete', [RoleManagementController::class, 'delete'])
                     ->name('roles.delete');
+
                 Route::resource('roles', RoleManagementController::class);
+
                 Route::resource('permissions', PermissionManagementController::class);
+                    //->only(['index', 'show']);
             });
 
     });

@@ -3,22 +3,39 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controllers\HasMiddleware;
+use Illuminate\Routing\Controllers\Middleware;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\ValidationException;
+
 use Spatie\Permission\Exceptions\RoleAlreadyExists;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 
-class RoleManagementController extends Controller
+
+class RoleManagementController extends Controller implements HasMiddleware
 {
+
+    public static function middleware(): array
+    {
+        return [
+            new Middleware('permission:browse-role|read-role|edit-role|add-role|delete-role', only: ['index', 'show',]),
+            new Middleware('permission:add-role', only: ['create', 'store',]),
+            new Middleware('permission:edit-role', only: ['edit', 'update',]),
+            new Middleware('permission:delete-role', only: ['delete', 'destroy',]),
+        ];
+    }
+
+
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $roles = Role::paginate(10);
+        $roles = Role::with('permissions')->paginate(10);
         return view('admin.roles.index')
             ->with('roles', $roles);
     }
@@ -147,10 +164,12 @@ class RoleManagementController extends Controller
         }
 
         $validated['name'] = Str::of($validated['name'])->kebab();
+        $validated['updated_at']=now();
 
         try {
 
             $role->update($validated);
+            $role->save();
 
         } catch (RoleAlreadyExists $e) {
 
@@ -229,16 +248,16 @@ class RoleManagementController extends Controller
 
 
     public function givePermission(Request $request, Role $role)
-{
-    if ($role->hasPermissionTo($request->permission)) {
+    {
+        if ($role->hasPermissionTo($request->permission)) {
 
-        return back()->with('message', 'Permission exists.');
+            return back()->with('message', 'Permission exists.');
 
+        }
+
+        $role->givePermissionTo($request->permission);
+
+        return back()->with('message', 'Permission added.');
     }
-
-    $role->givePermissionTo($request->permission);
-
-    return back()->with('message', 'Permission added.');
-}
 
 }
