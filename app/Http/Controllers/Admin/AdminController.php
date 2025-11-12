@@ -4,11 +4,12 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
-//use App\Models\Joke;
-//use App\Models\Category;
 use Illuminate\Support\Number;
 use Illuminate\View\View;
 use Spatie\Permission\Models\Role;
+
+//use App\Models\Joke;
+//use App\Models\Category;
 
 class AdminController extends Controller
 {
