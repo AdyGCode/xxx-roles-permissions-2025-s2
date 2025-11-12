@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\PermissionManagementController;
+use App\Http\Controllers\Admin\RoleManagementController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StaticPageController;
@@ -14,14 +16,45 @@ Route::middleware(['auth', 'verified'])->group(function () {
         ->name('dashboard');
 });
 
-Route::middleware(['auth', 'verified'])
+Route::middleware(['auth', 'verified','role:staff|admin|super-admin'])
     ->prefix('admin')
     ->name('admin.')
     ->group(function () {
+
         Route::get('/', [AdminController::class, 'index'])
             ->name('index');
 
+        // Remove when administration of users is created
         Route::get('users', [AdminController::class, 'users'])->name('users');
+
+        Route::middleware(['auth', 'verified', 'role:admin|super-admin'])
+            ->group(function () {
+
+                Route::resource('permissions', PermissionManagementController::class);
+
+                Route::post('/roles/{role}/permissions',
+                    [RoleManagementController::class, 'givePermission'])
+                    ->name('roles.permissions');
+
+                Route::get('roles/{role}/delete', [RoleManagementController::class, 'delete'])
+                    ->name('roles.delete');
+
+                Route::resource('roles', RoleManagementController::class);
+
+                //->only(['index', 'show']);
+            });
+
+        Route::middleware(['auth', 'verified', 'role:staff|admin|super-admin'])
+            ->group(function () {
+
+                Route::resource('permissions', PermissionManagementController::class)
+                    ->only(['index',]);
+
+                Route::resource('roles', RoleManagementController::class)
+                    ->only(['index', 'show',]);
+
+            });
+
     });
 
 Route::middleware('auth')->group(function () {

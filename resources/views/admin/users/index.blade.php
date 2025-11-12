@@ -41,22 +41,31 @@
                         <td class="px-3 py-1 whitespace-nowrap w-1/8">
                             <form action="{{ route('admin.users', $user) }}"
                                   method="post"
-                            class="grid grid-cols-3 gap-2 w-full">
+                                  class="grid grid-cols-3 gap-2 w-full">
                                 @csrf
                                 @method('delete')
 
-                                <a href="{{ route('admin.users', $user) }}"
-                                   class="hover:text-green-500 transition border p-2 text-center rounded">
-                                    <i class="fa-solid fa-user-tag"></i>
-                                </a>
+                                @can('read-user')
+                                    <a href="{{ route('admin.users', $user) }}"
+                                       class="hover:text-green-500 transition border p-2 text-center rounded">
+                                        <i class="fa-solid fa-user-tag"></i>
+                                    </a>
+                                @endcan
 
-                                <a href="{{ route('admin.users', $user) }}"
-                                   class="hover:text-blue-500 transition border p-2 text-center rounded">
-                                    <i class="fa-solid fa-user-cog"></i>
-                                </a>
-                                <button type="submit" class="hover:text-red-500 transition border p-2 text-center rounded">
-                                    <i class="fa-solid fa-user-slash"></i>
-                                </button>
+                                @can('edit-user')
+                                    <a href="{{ route('admin.users', $user) }}"
+                                       class="hover:text-blue-500 transition border p-2 text-center rounded">
+                                        <i class="fa-solid fa-user-cog"></i>
+                                    </a>
+                                @endcan
+
+                                @can('delete-user')
+                                    <button type="submit"
+                                            class="hover:text-red-500 transition border p-2 text-center rounded">
+                                        <i class="fa-solid fa-user-slash"></i>
+                                    </button>
+                                @endcan
+
                             </form>
                         </td>
                     </tr>
@@ -66,9 +75,20 @@
 
                 <tfoot>
                 <tr>
-                   <td colspan="4" class="p-3">
-                       {{ $users->onEachSide(2)->links("vendor.pagination.tailwind") }}
-                   </td>
+                    <td colspan="4" class="p-3">
+                        @if($users->hasPages())
+                            {{ $users->onEachSide(2)->links("vendor.pagination.tailwind") }}
+                        @else
+                            <span class="text-gray-700">
+                                @if ($users->total())
+                                    {{ __('Showing all users') }}
+                                @else
+                                    {{ __('No users to show') }}
+                                @endif
+                            </span>
+                        @endif
+
+                    </td>
                 </tr>
                 </tfoot>
             </table>

@@ -96,6 +96,21 @@
             {{ __('Categories') }}
         </x-side-nav-link>
 
+        <x-side-nav-link :href="route('home')" :active="request()->routeIs('home')">
+            <i class="fa-solid fa-cart-shopping group-hover:text-zinc-500"></i>
+            {{ __('Products') }}
+        </x-side-nav-link>
+
+        <x-side-nav-link :href="route('home')" :active="request()->routeIs('home')">
+            <i class="fa-solid fa-plane-departure group-hover:text-zinc-500"></i>
+            {{ __('Departures') }}
+        </x-side-nav-link>
+
+        <x-side-nav-link :href="route('home')" :active="request()->routeIs('home')">
+            <i class="fa-solid fa-plane-arrival group-hover:text-zinc-500"></i>
+            {{ __('Arrivals') }}
+        </x-side-nav-link>
+
         <details class="group [&_summary::-webkit-details-marker]:hidden">
             <summary
                 class="flex cursor-pointer items-center justify-between px-4 py-2
@@ -114,11 +129,15 @@
             </summary>
 
             <section class="mt-2 space-y-1">
-                <x-side-nav-link :href="route('home')" :active="request()->routeIs('home')" class="px-12 py-2">
+                <x-side-nav-link :href="route('admin.roles.index')"
+                                 :active="request()->routeIs('admin.roles.*')"
+                                 class="px-12 py-2">
                     {{ __('Roles') }}
                 </x-side-nav-link>
 
-                <x-side-nav-link :href="route('home')" :active="request()->routeIs('home')" class="px-12 py-2">
+                <x-side-nav-link :href="route('admin.permissions.index')"
+                                 :active="request()->routeIs('admin.permissions.*')"
+                                 class="px-12 py-2">
                     {{ __('Permissions') }}
                 </x-side-nav-link>
             </section>
@@ -126,7 +145,7 @@
         </details>
 
         <x-side-nav-link :href="route('home')" :active="request()->routeIs('home')">
-            <i class="fa-solid fa-plane-arrival group-hover:text-zinc-500"></i>
+            <i class="fa-solid fa-plane group-hover:text-zinc-500"></i>
             {{ __('Link X') }}
         </x-side-nav-link>
 
