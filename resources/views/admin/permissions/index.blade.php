@@ -17,7 +17,7 @@
 
             <a href="{{ route('admin.roles.index') }}"
                class="hover:bg-blue-500 hover:text-white transition border p-2 text-center rounded">
-                <i class="fa-solid fa-user-plus"></i>
+                <i class="fa-solid fa-user-shield"></i>
                 Back to Roles
             </a>
         </header>
@@ -47,25 +47,34 @@
                         </td>
 
                         <td class="px-3 py-1 whitespace-nowrap w-1/8">
+
                             <form action="{{ route('admin.permissions.index', $permission) }}"
                                   method="post"
                                   class="grid grid-cols-3 gap-2 w-full">
                                 @csrf
                                 @method('delete')
 
+                                @can('show-permission')
                                 <a href="{{ route('admin.permissions.show', $permission) }}"
                                    class="hover:text-green-500 transition border p-2 text-center rounded">
                                     <i class="fa-solid fa-user-tag"></i>
                                 </a>
+                                @endcan
 
+                                @can('edit-permission')
                                 <a href="{{ route('admin.permissions.edit', $permission) }}"
                                    class="hover:text-blue-500 transition border p-2 text-center rounded">
                                     <i class="fa-solid fa-user-cog"></i>
                                 </a>
+                                @endcan
+
+                                @can('delete-permission')
                                 <button type="submit"
                                         class="hover:text-red-500 transition border p-2 text-center rounded">
                                     <i class="fa-solid fa-user-slash"></i>
                                 </button>
+                                @endcan
+
                             </form>
                         </td>
 

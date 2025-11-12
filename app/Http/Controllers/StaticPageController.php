@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Foundation\Inspiring;
 use Illuminate\View\View;
 
 class StaticPageController extends Controller
@@ -11,7 +12,10 @@ class StaticPageController extends Controller
      */
     public function home(): View
     {
-        return view('static.welcome');
+
+        $inspireMe = Inspiring::quote();
+        return view('static.welcome')
+            ->with('inspireMe', $inspireMe);
     }
 
     public function about(): View

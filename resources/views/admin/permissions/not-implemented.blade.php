@@ -18,7 +18,7 @@
         </div>
 
         <div class="flex flex-1 w-full max-h-min overflow-x-auto">
-            <x-link-button href="{{ route('admin.permissions.index') }}">Back to Permissions</x-link-button>
+            <x-primary-link-button href="{{ route('admin.permissions.index') }}">Back to Permissions</x-primary-link-button>
         </div>
     </section>
 

@@ -57,10 +57,10 @@
                     Save
                 </x-primary-button>
 
-                <x-link-button href="{{route('admin.roles.index')}}">
+                <x-primary-link-button href="{{route('admin.roles.index')}}">
                     <i class="fa-solid fa-cancel pr-4"></i>
                     Cancel
-                </x-link-button>
+                </x-primary-link-button>
 
             </div>
 

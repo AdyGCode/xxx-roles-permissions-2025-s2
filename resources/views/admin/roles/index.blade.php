@@ -15,13 +15,13 @@
                     {{__('Roles')}}
                 </a>
             </h3>
-
+@can('create-role')
             <a href="{{ route('admin.roles.create') }}"
                class="hover:bg-blue-500 hover:text-white transition border p-2 text-center rounded">
                 <i class="fa-solid fa-user-plus"></i>
                 New Role
             </a>
-
+@endcan
         </header>
 
         <div class="flex flex-1 w-full max-h-min overflow-x-auto">
@@ -44,7 +44,7 @@
                         </td>
 
                         <td class="px-3 py-1 whitespace-nowrap w-auto">
-                                {{ $role->permissions()->get()->count() }}
+                            {{ $role->permissions()->get()->count() }}
                         </td>
 
                         <td class="px-3 py-1 whitespace-nowrap w-auto">
@@ -55,21 +55,26 @@
 
                         <td class="px-3 py-1 whitespace-nowrap flex gap-2 w-full">
 
+                            @can('read-role')
                             <a href="{{ route('admin.roles.show', $role) }}"
                                class="hover:text-green-500 transition border p-2 text-center rounded">
                                 <i class="fa-solid fa-user-tag"></i>
                             </a>
+                            @endcan
 
-                            <a href="{{ route('admin.roles.edit', $role) }}"
-                               class="hover:text-blue-500 transition border p-2 text-center rounded">
-                                <i class="fa-solid fa-user-cog"></i>
-                            </a>
+                            @can('edit-role')
+                                <a href="{{ route('admin.roles.edit', $role) }}"
+                                   class="hover:text-blue-500 transition border p-2 text-center rounded">
+                                    <i class="fa-solid fa-user-cog"></i>
+                                </a>
+                            @endcan
 
-                            <a href="{{ route('admin.roles.delete', $role) }}"
-                               class="hover:text-red-500 transition border p-2 text-center rounded">
-                                <i class="fa-solid fa-user-slash"></i>
-                            </a>
-
+                            @can('delete-role')
+                                <a href="{{ route('admin.roles.delete', $role) }}"
+                                   class="hover:text-red-500 transition border p-2 text-center rounded">
+                                    <i class="fa-solid fa-user-slash"></i>
+                                </a>
+                            @endcan
                         </td>
 
                     </tr>

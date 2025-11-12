@@ -19,6 +19,7 @@
         "vite": "^6.2.4"
     },
     "dependencies": {
-        "@fortawesome/fontawesome-free": "^7.0.0"
+        "@fortawesome/fontawesome-free": "^7.0.0",
+        "@midudev/tailwind-animations": "^0.2.0"
     }
 }

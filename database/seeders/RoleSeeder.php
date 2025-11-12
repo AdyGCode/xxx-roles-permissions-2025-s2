@@ -2,9 +2,7 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-
 use Illuminate\Support\Str;
 use Laravel\Prompts\Output\ConsoleOutput;
 use Spatie\Permission\Models\Permission;
@@ -24,6 +22,23 @@ class RoleSeeder extends Seeder
         app()[\Spatie\Permission\PermissionRegistrar::class]->forgetCachedPermissions();
 
         $seedPermissions = [
+            'browse permission',
+            'read permission',
+            'edit permission',
+            'add permission',
+            'delete permission',
+
+            'browse role',
+            'read role',
+            'edit role',
+            'add role',
+            'delete role',
+
+            'browse user',
+            'read user',
+            'edit user',
+            'add user',
+            'delete user',
 
             'browse post',
             'add post',
@@ -43,26 +58,6 @@ class RoleSeeder extends Seeder
             'publish own post',
             'restore own post',
             'trash own post',
-
-
-            'browse user',
-            'read user',
-            'edit user',
-            'add user',
-            'delete user',
-
-            'browse permission',
-            'read permission',
-            'edit permission',
-            'add permission',
-            'delete permission',
-
-            'browse role',
-            'read role',
-            'edit role',
-            'add role',
-            'delete role',
-
         ];
 
         $output = new ConsoleOutput();
@@ -101,21 +96,23 @@ class RoleSeeder extends Seeder
         $roleAdmin = Role::firstOrCreate(['name' => 'admin']);
 
         $adminPermissions = [
+            'browse permission', 'read permission', 'edit permission', 'add permission', 'delete permission',
+            'browse role', 'read role', 'edit role', 'add role', 'delete role',
             'browse user', 'read user', 'edit user', 'add user', 'delete user',
             'browse post', 'read any post', 'read own post',
             'read any unpublished post', 'read own unpublished post',
             'edit any post', 'edit own post', 'add post', 'delete any post',
             'delete own post', 'publish any post', 'publish own post', 'restore any post',
             'restore own post', 'trash any post', 'trash own post',
-            'browse permission', 'read permission', 'edit permission', 'add permission', 'delete permission',
-            'browse role', 'read role', 'edit role', 'add role', 'delete role',
         ];
 
         foreach ($adminPermissions as $key => $permission) {
             $adminPermissions[$key] = Str::of($permission)->kebab();
         }
 
-        $permissionsCollection = Permission::whereIn('name',$adminPermissions)->get()->pluck('id','id');
+        $permissionsCollection = Permission::whereIn('name', $adminPermissions)
+            ->get()
+            ->pluck('id', 'id');
         $roleAdmin->syncPermissions($permissionsCollection);
         $progress->advance();
 
@@ -137,7 +134,9 @@ class RoleSeeder extends Seeder
             $staffPermissions[$key] = Str::of($permission)->kebab();
         }
 
-        $permissionsCollection = Permission::whereIn('name',$staffPermissions)->get()->pluck('id','id');
+        $permissionsCollection = Permission::whereIn('name', $staffPermissions)
+            ->get()
+            ->pluck('id', 'id');
         $roleStaff->syncPermissions($permissionsCollection);
         $progress->advance();
 
@@ -155,7 +154,9 @@ class RoleSeeder extends Seeder
             $clientPermissions[$key] = Str::of($permission)->kebab();
         }
 
-        $permissionsCollection = Permission::whereIn('name',$clientPermissions)->get()->pluck('id','id');
+        $permissionsCollection = Permission::whereIn('name', $clientPermissions)
+            ->get()
+            ->pluck('id', 'id');
         $roleClient->syncPermissions($permissionsCollection);
         $progress->advance();
 
@@ -167,7 +168,7 @@ class RoleSeeder extends Seeder
         foreach ($seedRoles as $seedRole) {
             Role::create($seedRole);
         }
-            $progress->advance();
+        $progress->advance();
         $progress->finish();
         $output->writeln('');
 

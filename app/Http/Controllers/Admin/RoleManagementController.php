@@ -3,14 +3,12 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controllers\HasMiddleware;
 use Illuminate\Routing\Controllers\Middleware;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\ValidationException;
-
 use Spatie\Permission\Exceptions\RoleAlreadyExists;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
@@ -23,8 +21,8 @@ class RoleManagementController extends Controller implements HasMiddleware
     {
         return [
             new Middleware('permission:browse-role|read-role|edit-role|add-role|delete-role', only: ['index', 'show',]),
-            new Middleware('permission:add-role', only: ['create', 'store',]),
-            new Middleware('permission:edit-role', only: ['edit', 'update',]),
+            new Middleware('permission:add-role', only: ['create', 'store', 'givePermission']),
+            new Middleware('permission:edit-role', only: ['edit', 'update', 'givePermission']),
             new Middleware('permission:delete-role', only: ['delete', 'destroy',]),
         ];
     }
@@ -38,16 +36,6 @@ class RoleManagementController extends Controller implements HasMiddleware
         $roles = Role::with('permissions')->paginate(10);
         return view('admin.roles.index')
             ->with('roles', $roles);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        $permissions = Permission::all();
-        return view('admin.roles.create')
-            ->with('permissions', $permissions);
     }
 
     /**
@@ -108,6 +96,16 @@ class RoleManagementController extends Controller implements HasMiddleware
     }
 
     /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
+    {
+        $permissions = Permission::all();
+        return view('admin.roles.create')
+            ->with('permissions', $permissions);
+    }
+
+    /**
      * Display the specified resource.
      */
     public function show(Role $role)
@@ -164,12 +162,12 @@ class RoleManagementController extends Controller implements HasMiddleware
         }
 
         $validated['name'] = Str::of($validated['name'])->kebab();
-        $validated['updated_at']=now();
+        $validated['updated_at'] = now();
 
         try {
 
             $role->update($validated);
-            $role->save();
+            // $role->save();
 
         } catch (RoleAlreadyExists $e) {
 
@@ -193,15 +191,6 @@ class RoleManagementController extends Controller implements HasMiddleware
             "Role Updated");
 
         return to_route('admin.roles.index');
-    }
-
-    public function delete(Role $role)
-    {
-        $permissions = Permission::all();
-
-        return view('admin.roles.delete')
-            ->with('role', $role)
-            ->with('permissions', $permissions);
     }
 
     /**
@@ -246,6 +235,14 @@ class RoleManagementController extends Controller implements HasMiddleware
         return to_route('admin.roles.index');
     }
 
+    public function delete(Role $role)
+    {
+        $permissions = Permission::all();
+
+        return view('admin.roles.delete')
+            ->with('role', $role)
+            ->with('permissions', $permissions);
+    }
 
     public function givePermission(Request $request, Role $role)
     {

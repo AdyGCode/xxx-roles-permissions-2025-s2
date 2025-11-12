@@ -24,12 +24,13 @@
                 <i class="fa-solid fa-users"></i>
                 All Roles
             </a>
-
-            <a href="{{ route('admin.roles.create') }}"
-               class="hover:bg-blue-500 hover:text-white transition border p-2 text-center rounded">
-                <i class="fa-solid fa-user-plus"></i>
-                New Role
-            </a>
+            @can("add-role")
+                <a href="{{ route('admin.roles.create') }}"
+                   class="hover:bg-blue-500 hover:text-white transition border p-2 text-center rounded">
+                    <i class="fa-solid fa-user-plus"></i>
+                    New Role
+                </a>
+            @endcan
         </header>
 
 
@@ -66,16 +67,17 @@
 
         <footer class="flex flex-row space-x-4">
 
-            <x-link-button href="{{route('admin.roles.index')}}">
+            <x-primary-link-button href="{{route('admin.roles.index')}}">
                 <i class="fa-solid fa-users"></i> &nbsp;
                 All Roles
-            </x-link-button>
+            </x-primary-link-button>
 
-            <x-link-button href="{{route('admin.roles.edit', $role)}}">
-                <i class="fa-solid fa-save"></i> &nbsp;
-                Edit
-            </x-link-button>
-
+            @can("edit-role")
+                <x-primary-link-button href="{{route('admin.roles.edit', $role)}}">
+                    <i class="fa-solid fa-save"></i> &nbsp;
+                    Edit
+                </x-primary-link-button>
+            @endcan
         </footer>
 
     </section>

@@ -101,11 +101,11 @@
                     Delete
                 </x-primary-button>
 
-                <x-link-button href="{{route('admin.roles.index')}}"
+                <x-primary-link-button href="{{route('admin.roles.index')}}"
                                class="hover:bg-blue-500! hover:text-white!">
                     <i class="fa-solid fa-cancel"></i> &nbsp;
                     Cancel
-                </x-link-button>
+                </x-primary-link-button>
 
             </footer>
         </form>

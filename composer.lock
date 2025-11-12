@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d67983c87046a7c886fa256458ec5d36",
+    "content-hash": "06b898e629597c2ced973ecbc07bc727",
     "packages": [
         {
             "name": "brick/math",
@@ -2723,16 +2723,16 @@
         },
         {
             "name": "php-flasher/flasher",
-            "version": "v2.1.6",
+            "version": "v2.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-flasher/flasher.git",
-                "reference": "054a209515d2eb1bb72467023d8614a29b5d2e60"
+                "reference": "d6f60b2ff19bc1bec49dcf7b48833805f0097242"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-flasher/flasher/zipball/054a209515d2eb1bb72467023d8614a29b5d2e60",
-                "reference": "054a209515d2eb1bb72467023d8614a29b5d2e60",
+                "url": "https://api.github.com/repos/php-flasher/flasher/zipball/d6f60b2ff19bc1bec49dcf7b48833805f0097242",
+                "reference": "d6f60b2ff19bc1bec49dcf7b48833805f0097242",
                 "shasum": ""
             },
             "require": {
@@ -2776,34 +2776,30 @@
             },
             "funding": [
                 {
-                    "url": "https://www.paypal.com/paypalme/yoeunes",
-                    "type": "custom"
-                },
-                {
                     "url": "https://github.com/yoeunes",
                     "type": "github"
                 }
             ],
-            "time": "2025-02-21T20:05:00+00:00"
+            "time": "2025-11-10T14:20:21+00:00"
         },
         {
             "name": "php-flasher/flasher-laravel",
-            "version": "v2.1.6",
+            "version": "v2.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-flasher/flasher-laravel.git",
-                "reference": "7097ab207d602db59b241206048c9884aadc5c06"
+                "reference": "d4cdc528190214379aebf2779219cb542a747301"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-flasher/flasher-laravel/zipball/7097ab207d602db59b241206048c9884aadc5c06",
-                "reference": "7097ab207d602db59b241206048c9884aadc5c06",
+                "url": "https://api.github.com/repos/php-flasher/flasher-laravel/zipball/d4cdc528190214379aebf2779219cb542a747301",
+                "reference": "d4cdc528190214379aebf2779219cb542a747301",
                 "shasum": ""
             },
             "require": {
                 "illuminate/support": "^11.0|^12.0",
                 "php": ">=8.2",
-                "php-flasher/flasher": "^2.1.6"
+                "php-flasher/flasher": "^2.2.0"
             },
             "type": "library",
             "extra": {
@@ -2854,15 +2850,11 @@
             },
             "funding": [
                 {
-                    "url": "https://www.paypal.com/paypalme/yoeunes",
-                    "type": "custom"
-                },
-                {
                     "url": "https://github.com/yoeunes",
                     "type": "github"
                 }
             ],
-            "time": "2025-02-21T20:05:00+00:00"
+            "time": "2025-11-10T14:20:21+00:00"
         },
         {
             "name": "phpoption/phpoption",
@@ -7132,16 +7124,16 @@
         },
         {
             "name": "larastan/larastan",
-            "version": "v3.8.0",
+            "version": "v3.7.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/larastan/larastan.git",
-                "reference": "d13ef96d652d1b2a8f34f1760ba6bf5b9c98112e"
+                "reference": "a761859a7487bd7d0cb8b662a7538a234d5bb5ae"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/larastan/larastan/zipball/d13ef96d652d1b2a8f34f1760ba6bf5b9c98112e",
-                "reference": "d13ef96d652d1b2a8f34f1760ba6bf5b9c98112e",
+                "url": "https://api.github.com/repos/larastan/larastan/zipball/a761859a7487bd7d0cb8b662a7538a234d5bb5ae",
+                "reference": "a761859a7487bd7d0cb8b662a7538a234d5bb5ae",
                 "shasum": ""
             },
             "require": {
@@ -7155,7 +7147,7 @@
                 "illuminate/pipeline": "^11.44.2 || ^12.4.1",
                 "illuminate/support": "^11.44.2 || ^12.4.1",
                 "php": "^8.2",
-                "phpstan/phpstan": "^2.1.29"
+                "phpstan/phpstan": "^2.1.28"
             },
             "require-dev": {
                 "doctrine/coding-standard": "^13",
@@ -7168,8 +7160,7 @@
                 "phpunit/phpunit": "^10.5.35 || ^11.5.15"
             },
             "suggest": {
-                "orchestra/testbench": "Using Larastan for analysing a package needs Testbench",
-                "phpmyadmin/sql-parser": "Install to enable Larastan's optional phpMyAdmin-based SQL parser automatically"
+                "orchestra/testbench": "Using Larastan for analysing a package needs Testbench"
             },
             "type": "phpstan-extension",
             "extra": {
@@ -7210,7 +7201,7 @@
             ],
             "support": {
                 "issues": "https://github.com/larastan/larastan/issues",
-                "source": "https://github.com/larastan/larastan/tree/v3.8.0"
+                "source": "https://github.com/larastan/larastan/tree/v3.7.2"
             },
             "funding": [
                 {
@@ -7218,7 +7209,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-10-27T23:09:14+00:00"
+            "time": "2025-09-19T09:03:05+00:00"
         },
         {
             "name": "laravel/pint",
