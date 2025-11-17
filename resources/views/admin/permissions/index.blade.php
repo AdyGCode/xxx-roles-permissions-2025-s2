@@ -55,24 +55,24 @@
                                 @method('delete')
 
                                 @can('show-permission')
-                                <a href="{{ route('admin.permissions.show', $permission) }}"
-                                   class="hover:text-green-500 transition border p-2 text-center rounded">
-                                    <i class="fa-solid fa-user-tag"></i>
-                                </a>
+                                    <a href="{{ route('admin.permissions.show', $permission) }}"
+                                       class="hover:text-green-500 transition border p-2 text-center rounded">
+                                        <i class="fa-solid fa-user-tag"></i>
+                                    </a>
                                 @endcan
 
                                 @can('edit-permission')
-                                <a href="{{ route('admin.permissions.edit', $permission) }}"
-                                   class="hover:text-blue-500 transition border p-2 text-center rounded">
-                                    <i class="fa-solid fa-user-cog"></i>
-                                </a>
+                                    <a href="{{ route('admin.permissions.edit', $permission) }}"
+                                       class="hover:text-blue-500 transition border p-2 text-center rounded">
+                                        <i class="fa-solid fa-user-cog"></i>
+                                    </a>
                                 @endcan
 
                                 @can('delete-permission')
-                                <button type="submit"
-                                        class="hover:text-red-500 transition border p-2 text-center rounded">
-                                    <i class="fa-solid fa-user-slash"></i>
-                                </button>
+                                    <button type="submit"
+                                            class="hover:text-red-500 transition border p-2 text-center rounded">
+                                        <i class="fa-solid fa-user-slash"></i>
+                                    </button>
                                 @endcan
 
                             </form>

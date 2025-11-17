@@ -102,7 +102,7 @@
                 </x-primary-button>
 
                 <x-primary-link-button href="{{route('admin.roles.index')}}"
-                               class="hover:bg-blue-500! hover:text-white!">
+                                       class="hover:bg-blue-500! hover:text-white!">
                     <i class="fa-solid fa-cancel"></i> &nbsp;
                     Cancel
                 </x-primary-link-button>

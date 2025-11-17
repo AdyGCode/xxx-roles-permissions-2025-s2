@@ -15,13 +15,13 @@
                     {{__('Roles')}}
                 </a>
             </h3>
-@can('create-role')
-            <a href="{{ route('admin.roles.create') }}"
-               class="hover:bg-blue-500 hover:text-white transition border p-2 text-center rounded">
-                <i class="fa-solid fa-user-plus"></i>
-                New Role
-            </a>
-@endcan
+            @can('create-role')
+                <a href="{{ route('admin.roles.create') }}"
+                   class="hover:bg-blue-500 hover:text-white transition border p-2 text-center rounded">
+                    <i class="fa-solid fa-user-plus"></i>
+                    New Role
+                </a>
+            @endcan
         </header>
 
         <div class="flex flex-1 w-full max-h-min overflow-x-auto">
@@ -56,10 +56,10 @@
                         <td class="px-3 py-1 whitespace-nowrap flex gap-2 w-full">
 
                             @can('read-role')
-                            <a href="{{ route('admin.roles.show', $role) }}"
-                               class="hover:text-green-500 transition border p-2 text-center rounded">
-                                <i class="fa-solid fa-user-tag"></i>
-                            </a>
+                                <a href="{{ route('admin.roles.show', $role) }}"
+                                   class="hover:text-green-500 transition border p-2 text-center rounded">
+                                    <i class="fa-solid fa-user-tag"></i>
+                                </a>
                             @endcan
 
                             @can('edit-role')
