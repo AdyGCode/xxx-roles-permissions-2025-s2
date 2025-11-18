@@ -13,6 +13,7 @@ use Spatie\Permission\Exceptions\RoleAlreadyExists;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 
+use Flasher\Prime\FlasherInterface;
 
 class RoleManagementController extends Controller implements HasMiddleware
 {

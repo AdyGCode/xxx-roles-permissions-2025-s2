@@ -9,8 +9,11 @@ class DashboardController extends Controller
     public function dashboard(): View
     {
         $user = auth()->user();
+        $roles = $user->roles()->get();
+
 
         return view('static.dashboard')
-            ->with('user', $user);
+            ->with('user', $user)
+            ->with('roles', $roles);
     }
 }

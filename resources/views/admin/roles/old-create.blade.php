@@ -32,12 +32,39 @@
             </a>
         </header>
 
+        <form action="{{ route('admin.roles.store') }}"
+              method="POST"
+              class="p-6 flex flex-col space-y-4">
 
-        @error('roleName')
-        <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
-        @enderror
-        @livewire('role-create-and-edit', ['roleId' => $role->id??null]) {{-- Pass roleId for edit mode --}}
+            @csrf
 
+            <x-input-label
+                for="name"
+                :value="__('Role Name')"/>
+
+            <x-text-input name="name" id="Name"
+                          placeholder="{{ __('New role name') }}?"
+                          :message="old('name')"
+                          :value="old('name')"
+            />
+
+            <x-input-error :messages="$errors->get('name')" class="mt-2" rows="10"/>
+
+            <div class="flex flex-row space-x-4">
+
+                <x-primary-button>
+                    <i class="fa-solid fa-save pr-4"></i>
+                    Save
+                </x-primary-button>
+
+                <x-primary-link-button href="{{route('admin.roles.index')}}">
+                    <i class="fa-solid fa-cancel pr-4"></i>
+                    Cancel
+                </x-primary-link-button>
+
+            </div>
+
+        </form>
 
     </section>
 
