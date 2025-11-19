@@ -10,55 +10,115 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 flex flex-col gap-8">
 
-            <section class="border grow h-full shadow-md rounded-lg space-y-2">
-                <h2 class="text-xl text-gray-50 font-semibold bg-black p-4 pb-6 mb-6 rounded-t">
+            <section class="border border-gray-100 grow h-full shadow-md rounded-lg space-y-2 overflow-hidden">
+                <h2 class="text-xl text-gray-50 font-semibold bg-indigo-700 p-4 pb-6 mb-6 ">
                     The Team
                 </h2>
 
-                <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8 p-4">
-                    <section class="border border-2 rounded-lg  p-2 text-gray-500 space-y-2">
-                        <header class="-mt-2 -mx-2 mb-4 flex space-x-2 bg-black text-white  items-center">
-                            <h4 class="p-2 py-3 text-xl font-semibold w-2/3">
-                                YOUR NAME
-                            </h4>
-                            <p class="px-2 text-sm font-medium text-right grow">
-                                Lead Developer
-                            </p>
-                        </header>
+                <div class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+                    <div class="grid grid-cols-1 gap-6 md:grid-cols-3 xl:grid-cols-4">
+                        <div class="shadow rounded-lg p-2 pb-3">
+                            <img src="{{ asset('storage/undraw_programming_j1zw.svg') }}" alt=""
+                                 class="aspect-video rounded-lg object-cover">
 
-                        <p>More details here</p>
+                            <div class="mt-4 flex items-center justify-between gap-4">
+                                <div>
+                                    <h3 class="text-lg/tight font-semibold text-gray-900">YOUR NAME</h3>
 
-                    </section>
+                                    <p class="mt-0.5 text-sm text-gray-700">Lead Developer</p>
+                                </div>
 
-                    <section class="border border-2 rounded-lg  p-2 text-gray-500 space-y-2">
-                        <header class="-mt-2 -mx-2 mb-4 flex space-x-2 bg-black text-white  items-center">
-                            <h4 class="p-2 py-3 text-xl font-semibold w-2/3">
-                                LECTURER'S NAME
-                            </h4>
-                            <p class="px-2 text-sm font-medium text-right grow">
-                                Development Supervisor
-                            </p>
-                        </header>
+                                <a href="https://github.com/YOURNAME" target="_blank" rel="noreferrer"
+                                   class="text-[#0072b1] transition-opacity hover:opacity-70">
+                                    <i class="fa-brands fa-github text-4xl"></i>
+                                </a>
+                            </div>
+                            <p class="mt-0.5 text-sm text-gray-500">More details here</p>
+                        </div>
 
-                        <p>More details here</p>
+                        <div class="shadow rounded-lg p-2 pb-3">
+                            <img src="{{ asset('storage/undraw_dev-productivity_5wps.svg') }}" alt=""
+                                 class="aspect-video rounded-lg object-cover">
 
-                    </section>
+                            <div class="mt-4 flex items-center justify-between gap-4">
+                                <div>
+                                    <h3 class="text-lg/tight font-semibold text-gray-900">Eric Johnson</h3>
 
-                    <section class="border border-2 rounded-lg  p-2 text-gray-500 space-y-2">
-                        <header class="-mt-2 -mx-2 mb-4 flex space-x-2 bg-black text-white  items-center">
-                            <h4 class="p-2 py-3 text-xl font-semibold w-2/3">
-                                TEAM MEMBER NAME
-                            </h4>
-                            <p class="px-2 text-sm font-medium text-right grow">
-                                Developer
-                            </p>
-                        </header>
+                                    <p class="mt-0.5 text-sm text-gray-700">Product Designer</p>
+                                </div>
 
-                        <p>More details here</p>
+                                <a href="#" target="_blank" rel="noreferrer"
+                                   class="text-[#0072b1] transition-opacity hover:opacity-90">
+                                    <i class="fa-brands fa-github text-4xl"></i>
 
-                    </section>
+                                </a>
+                            </div>
+                            <p class="mt-0.5 text-sm text-gray-500">More details here</p>
+                        </div>
 
+                        <div class="shadow rounded-lg p-2 pb-3">
+                            <img src="{{ asset('storage/undraw_maintenance_4unj.svg') }}" alt=""
+                                 class="aspect-video rounded-lg object-cover">
+
+                            <div class="mt-4 flex items-center justify-between gap-4">
+                                <div>
+                                    <h3 class="text-lg/tight font-semibold text-gray-900">TEAM MEMBER_NAME</h3>
+
+                                    <p class="mt-0.5 text-sm text-gray-700">CI/CD</p>
+                                </div>
+
+                                <a href="#" target="_blank" rel="noreferrer"
+                                   class="text-[#0072b1] transition-opacity hover:opacity-90">
+                                    <i class="fa-brands fa-github text-4xl"></i>
+
+                                </a>
+                            </div>
+                            <p class="mt-0.5 text-sm text-gray-500">More details here</p>
+                        </div>
+
+                        <div class="shadow rounded-lg p-2 pb-3">
+                            <img src="{{ asset('storage/undraw_dev-focus_dd7i.svg') }}" alt=""
+                                 class="aspect-video rounded-lg object-cover">
+
+                            <div class="mt-4 flex items-center justify-between gap-4">
+                                <div>
+                                    <h3 class="text-lg/tight font-semibold text-gray-900">TEAM MEMBER_NAME</h3>
+
+                                    <p class="mt-0.5 text-sm text-gray-700">Developer</p>
+                                </div>
+
+                                <a href="#" target="_blank" rel="noreferrer"
+                                   class="text-[#0072b1] transition-opacity hover:opacity-90">
+                                    <i class="fa-brands fa-github text-4xl"></i>
+
+                                </a>
+                            </div>
+                            <p class="mt-0.5 text-sm text-gray-500">More details here</p>
+                        </div>
+
+                        <div class="shadow rounded-lg p-2 pb-3">
+                            <img src="{{ asset('storage/undraw_secure-server_lz9x.svg') }}" alt=""
+                                 class="aspect-video rounded-lg object-cover">
+
+                            <div class="mt-4 flex items-center justify-between gap-4">
+                                <div>
+                                    <h3 class="text-lg/tight font-semibold text-gray-900">TEAM MEMBER_NAME</h3>
+
+                                    <p class="mt-0.5 text-sm text-gray-700">IT Support</p>
+                                </div>
+
+                                <a href="#" target="_blank" rel="noreferrer"
+                                   class="text-[#0072b1] transition-opacity hover:opacity-90">
+                                    <i class="fa-brands fa-github text-4xl"></i>
+
+                                </a>
+                            </div>
+                            <p class="mt-0.5 text-sm text-gray-500">More details here</p>
+                        </div>
+
+                    </div>
                 </div>
+
             </section>
 
             <section class=" border grow h-full shadow-md p-4 pb-8 rounded-lg space-y-2">
@@ -68,45 +128,59 @@
 
                 <div class="flex space-x-6 flex-wrap text-gray-600">
                     <p>
-                        <a href="#" class="hover:text-gray-500 underline underline-offset-4">
-                            <i class="fa-brands fa-php pr-1"></i>
-                            PHP
+                        <a href="#" class="hover:text-gray-500">
+                            <span class="min-w-8 h-6 mr-0.5">
+                                <img src="{{ asset('storage/php.svg') }}" alt="" class="inline-block h-6">
+                            </span>
+                            <span>PHP</span>
                         </a>
                     </p>
                     <p>
-                        <a href="#" class="hover:text-gray-500 underline underline-offset-4">
-                            <i class="fa-brands fa-laravel pr-1"></i>
-                            Laravel
+                        <a href="#" class="hover:text-gray-500">
+                                                        <span class="min-w-8 h-6 mr-0.5">
+                                <img src="{{ asset('storage/laravel.svg') }}" alt="" class="inline-block h-6">
+                            </span>
+                            <span>Laravel</span>
                         </a>
                     </p>
                     <p>
-                        <a href="#" class="hover:text-gray-500 underline underline-offset-4">
-                            <i class="fa-brands fa-laravel pr-1"></i>
-                            Livewire
+                        <a href="#" class="hover:text-gray-500">
+                            <span class="min-w-8 h-6 mr-0.5">
+                                <img src="{{ asset('storage/livewire.svg') }}" alt="" class="inline-block h-6">
+                            </span>
+                            <span>Livewire</span>
                         </a>
                     </p>
                     <p>
-                        <a href="#" class="hover:text-gray-500 underline underline-offset-4">
-                            <i class="fa-brands fa-laravel pr-1"></i>
-                            Spatie Permissions
+                        <a href="#" class="hover:text-gray-500 ">
+                            <span class="min-w-8 h-6 mr-0.5">
+                                <img src="{{ asset('storage/spatie.svg') }}" alt="" class="inline-block h-6">
+                            </span>
+                            <span>Spatie Permissions</span>
                         </a>
                     </p>
                     <p>
-                        <a href="#" class="hover:text-gray-500 underline underline-offset-4">
-                            <i class="fa-solid fa-jet-fighter-up pr-1"></i>
-                            PHP Storm
+                        <a href="#" class="hover:text-gray-500">
+                            <span class="min-w-8 h-6 mr-0.5">
+                                <img src="{{ asset('storage/phpstorm.svg') }}" alt="" class="inline-block h-6">
+                            </span>
+                            <span>PHP Storm</span>
                         </a>
                     </p>
                     <p>
-                        <a href="#" class="hover:text-gray-500 underline underline-offset-4">
-                            <i class="fa-brands fa-css3 pr-1"></i>
-                            TailwindCSS
+                        <a href="#" class="hover:text-gray-500">
+                            <span class="min-w-8 h-6 mr-0.5">
+                                <img src="{{ asset('storage/tailwindcss.svg') }}" alt="" class="inline-block h-6">
+                            </span>
+                            <span>TailwindCSS</span>
                         </a>
                     </p>
                     <p>
-                        <a href="#" class="hover:text-gray-500 underline underline-offset-4">
-                            <i class="fa-brands fa-font-awesome pr-1"></i>
-                            FontAwesome
+                        <a href="#" class="hover:text-gray-500">
+                            <span class="min-w-8 h-6 mr-0.5">
+                                <img src="{{ asset('storage/fontawesome.svg') }}" alt="" class="inline-block h-6">
+                            </span>
+                            <span>FontAwesome</span>
                         </a>
                     </p>
                 </div>
