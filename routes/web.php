@@ -11,12 +11,15 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [StaticPageController::class, 'home'])
     ->name('home');
 
+Route::get('about', [StaticPageController::class, 'about'])
+    ->name('about');
+
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'dashboard'])
         ->name('dashboard');
 });
 
-Route::middleware(['auth', 'verified','role:staff|admin|super-admin'])
+Route::middleware(['auth', 'verified', 'role:staff|admin|super-admin'])
     ->prefix('admin')
     ->name('admin.')
     ->group(function () {
@@ -40,7 +43,7 @@ Route::middleware(['auth', 'verified','role:staff|admin|super-admin'])
                     ->name('roles.delete');
 
                 Route::resource('roles', RoleManagementController::class);
-
+                // ->except(['delete','destroy'])
                 //->only(['index', 'show']);
             });
 

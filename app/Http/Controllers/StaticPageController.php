@@ -20,21 +20,21 @@ class StaticPageController extends Controller
 
     public function about(): View
     {
-        //        return view('static.about');
+        return view('static.about');
     }
 
     public function contact(): View
     {
-        //        return view('static.contact');
+        return view('static.contact');
     }
 
     public function privacy(): View
     {
-        //        return view('static.privacy');
+        return view('static.privacy');
     }
 
     public function terms(): View
     {
-        //        return view('static.terms');
+        return view('static.terms');
     }
 }

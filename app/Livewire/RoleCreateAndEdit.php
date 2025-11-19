@@ -29,7 +29,8 @@ class RoleCreateAndEdit extends Component
             $role = Role::findOrFail($roleId);
             $this->roleName = $role->name;
             $this->selectedPermissions = $role->permissions->pluck('name')->toArray();
-            $this->availablePermissions = array_diff($this->availablePermissions, $this->selectedPermissions);
+            $this->availablePermissions = array_diff($this->availablePermissions,
+                $this->selectedPermissions);
         }
     }
 
@@ -99,8 +100,9 @@ class RoleCreateAndEdit extends Component
     public function render(): View
     {
 
-        $filteredPermissions = array_filter($this->availablePermissions, function ($permission) {
-            return stripos($permission, $this->search) !== false;
+        $filteredPermissions = array_filter($this->availablePermissions,
+            function ($permission) {
+                return stripos($permission, $this->search) !== false;
         });
 
         return view('livewire.role-create-and-edit', [
