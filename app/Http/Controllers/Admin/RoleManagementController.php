@@ -3,12 +3,14 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controllers\HasMiddleware;
 use Illuminate\Routing\Controllers\Middleware;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\ValidationException;
+
 use Spatie\Permission\Exceptions\RoleAlreadyExists;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
@@ -21,10 +23,14 @@ class RoleManagementController extends Controller implements HasMiddleware
     public static function middleware(): array
     {
         return [
-            new Middleware('permission:browse-role|read-role|edit-role|add-role|delete-role', only: ['index', 'show',]),
-            new Middleware('permission:add-role', only: ['create', 'store', 'givePermission']),
-            new Middleware('permission:edit-role', only: ['edit', 'update', 'givePermission']),
-            new Middleware('permission:delete-role', only: ['delete', 'destroy',]),
+            new Middleware('permission:browse-role|read-role|edit-role|add-role|delete-role',
+                only: ['index', 'show',]),
+            new Middleware('permission:add-role',
+                only: ['create', 'store', 'givePermission']),
+            new Middleware('permission:edit-role',
+                only: ['edit', 'update', 'givePermission']),
+            new Middleware('permission:delete-role',
+                only: ['delete', 'destroy',]),
         ];
     }
 

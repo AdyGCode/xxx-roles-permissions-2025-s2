@@ -20,23 +20,18 @@ A Laravel Blade Template with Sanctum Authentication built in.
 [![JetBrains][JetBrains.com]][JetBrains-url]
 
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+<p style="text-align:right">(<a href="#top">back to top</a>)</p>
 
 
 
 ## Description
 
-A starter kit for Laravel based on Laravel's Blade templating engine, TailwindCSS v4, HyperUI components and FontAwesome Free icons.
+Demonstration of using Spatie roles and Permissions with:
 
-It contains three sections:
-
-- Static Layout, Controller and Pages
-- Authenticated User Layout and Pages
-- Administration Layout, Controller and Pages
-
-The project was developed as a re-write of the "Retro Blade Kit" also by Adrian Gould.
-
-It provides a base template for the creation of a "SaaS" style application, omitting sections that may tie to a specific vendor such as a payment system. 
+- Role management (BREAD/CRUD)
+- Permission browsing/Reading
+- `@can`, `@cannot`, and other Blade template macros
+- ...
 
 #### General Welcome/Home Page
 
@@ -51,7 +46,7 @@ It provides a base template for the creation of a "SaaS" style application, omit
 ![Administration Dashboard](_docs/images/screenshot-a.png)
 
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+<p style="text-align:right">(<a href="#top">back to top</a>)</p>
 
 
 
@@ -86,7 +81,7 @@ Create a new Laravel application using this starter kit through the official [La
 Replace `my-app` with the name of your project, using kebab-case.
 
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+<p style="text-align:right">(<a href="#top">back to top</a>)</p>
 
 
 ## Credits
@@ -101,8 +96,7 @@ This template is built using:
 - TailwindCSS. (2023). Tailwind CSS - Rapidly build modern websites without ever leaving your HTML. Tailwindcss.com. https://tailwindcss.com/
 - Free Open Source Tailwind CSS v4 Components | HyperUI. (2025). HyperUI. https://www.hyperui.dev/
 
-
-<p align="right">(<a href="#top">back to top</a>)</p>
+<p style="text-align:right">(<a href="#top">back to top</a>)</p>
 
 
 
@@ -113,7 +107,7 @@ This template is built using:
 [![Educational Community Licence][licence-shield]][licence-url]
 
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+<p style="text-align:right">(<a href="#top">back to top</a>)</p>
 
 
 ## Tests
@@ -121,7 +115,7 @@ This template is built using:
 TBD
 
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+<p style="text-align:right">(<a href="#top">back to top</a>)</p>
 
 
 ## Contact
@@ -131,7 +125,7 @@ Adrian Gould: Lecturer (ASL1), [North Metropolitan TAFE](https://northmetrotafe.
 - GitHub Repos: [https://github.com/AdyGCode](https://github.com/AdyGCode)
 - Starter Kit Repo: [Retro Blade Starter Kit](https://github.com/AdyGCode/retro-blade-kit)
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+<p style="text-align:right">(<a href="#top">back to top</a>)</p>
 
 
 
@@ -140,7 +134,7 @@ Adrian Gould: Lecturer (ASL1), [North Metropolitan TAFE](https://northmetrotafe.
 The Laravel "Base Blade Kit" Starter Kit is open-sourced software licensed under the MIT license.
 
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+<p style="text-align:right">(<a href="#top">back to top</a>)</p>
 
 
 

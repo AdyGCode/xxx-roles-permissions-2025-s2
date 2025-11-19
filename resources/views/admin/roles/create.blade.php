@@ -15,7 +15,8 @@
                     {{__('Roles')}}
                 </a>
                 <span class="text-zinc-500 font-normal">
-                   <i class="fa-solid fa-arrow-right text-zinc-400"></i> {{ __("Create New Role") }}
+                   <i class="fa-solid fa-arrow-right text-zinc-400"></i>
+                    {{ __("Create New Role") }}
                 </span>
             </h3>
 
@@ -25,18 +26,22 @@
                 All Roles
             </a>
 
-            <a href="{{ route('admin.roles.create') }}"
-               class="hover:bg-blue-500 hover:text-white transition border p-2 text-center rounded">
-                <i class="fa-solid fa-user-plus"></i>
-                New Role
-            </a>
+            @can('create-role')
+                <a href="{{ route('admin.roles.create') }}"
+                   class="hover:bg-blue-500 hover:text-white transition border p-2 text-center rounded">
+                    <i class="fa-solid fa-user-plus"></i>
+                    New Role
+                </a>
+            @endcan
         </header>
 
 
         @error('roleName')
         <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
         @enderror
-        @livewire('role-create-and-edit', ['roleId' => $role->id??null]) {{-- Pass roleId for edit mode --}}
+
+        @livewire('role-create-and-edit')
+        {{-- Pass roleId for edit mode --}}
 
 
     </section>
