@@ -23,13 +23,13 @@ class RoleManagementController extends Controller implements HasMiddleware
     public static function middleware(): array
     {
         return [
-            new Middleware('permission:browse-role|read-role|edit-role|add-role|delete-role',
+            new Middleware('permission:role-browse|role-read|role-edit|role-add|role-delete',
                 only: ['index', 'show',]),
-            new Middleware('permission:add-role',
+            new Middleware('permission:role-add',
                 only: ['create', 'store', 'givePermission']),
-            new Middleware('permission:edit-role',
+            new Middleware('permission:role-edit',
                 only: ['edit', 'update', 'givePermission']),
-            new Middleware('permission:delete-role',
+            new Middleware('permission:role-delete',
                 only: ['delete', 'destroy',]),
         ];
     }

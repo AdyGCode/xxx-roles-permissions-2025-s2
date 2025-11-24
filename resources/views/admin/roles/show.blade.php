@@ -24,7 +24,7 @@
                 <i class="fa-solid fa-users"></i>
                 All Roles
             </a>
-            @can("add-role")
+            @can("role-add")
                 <a href="{{ route('admin.roles.create') }}"
                    class="hover:bg-blue-500 hover:text-white transition border p-2 text-center rounded">
                     <i class="fa-solid fa-user-plus"></i>
@@ -72,7 +72,7 @@
                 All Roles
             </x-primary-link-button>
 
-            @can("edit-role")
+            @can("role-edit")
                 <x-primary-link-button href="{{route('admin.roles.edit', $role)}}">
                     <i class="fa-solid fa-save"></i> &nbsp;
                     Edit

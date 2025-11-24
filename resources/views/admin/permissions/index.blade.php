@@ -61,14 +61,14 @@
                                     </a>
                                 @endcan
 
-                                @can('edit-permission')
+                                @can('permission-edit')
                                     <a href="{{ route('admin.permissions.edit', $permission) }}"
                                        class="hover:text-blue-500 transition border p-2 text-center rounded">
                                         <i class="fa-solid fa-user-cog"></i>
                                     </a>
                                 @endcan
 
-                                @can('delete-permission')
+                                @can('permission-delete')
                                     <button type="submit"
                                             class="hover:text-red-500 transition border p-2 text-center rounded">
                                         <i class="fa-solid fa-user-slash"></i>

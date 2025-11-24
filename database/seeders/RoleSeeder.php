@@ -22,42 +22,42 @@ class RoleSeeder extends Seeder
         app()[\Spatie\Permission\PermissionRegistrar::class]->forgetCachedPermissions();
 
         $seedPermissions = [
-            'browse permission',
-            'read permission',
-            'edit permission',
-            'add permission',
-            'delete permission',
+            'permission browse',
+            'permission read',
+            'permission edit',
+            'permission add',
+            'permission delete',
 
-            'browse role',
-            'read role',
-            'edit role',
-            'add role',
-            'delete role',
+            'role browse',
+            'role read',
+            'role edit',
+            'role add',
+            'role delete',
 
-            'browse user',
-            'read user',
-            'edit user',
-            'add user',
-            'delete user',
+            'user browse',
+            'user read',
+            'user edit',
+            'user add',
+            'user delete',
 
-            'browse post',
-            'add post',
+            'post browse',
+            'post add',
 
-            'read any post',
-            'read any unpublished post',
-            'edit any post',
-            'delete any post',
-            'publish any post',
-            'restore any post',
-            'trash any post',
+            'post any read',
+            'post any read unpublished',
+            'post any edit',
+            'post any delete',
+            'post any publish',
+            'post any restore',
+            'post any trash',
 
-            'read own post',
-            'read own unpublished post',
-            'edit own post',
-            'delete own post',
-            'publish own post',
-            'restore own post',
-            'trash own post',
+            'post own read',
+            'post own read unpublished',
+            'post own edit',
+            'post own delete',
+            'post own publish',
+            'post own restore',
+            'post own trash',
         ];
 
         $output = new ConsoleOutput();
@@ -96,14 +96,37 @@ class RoleSeeder extends Seeder
         $roleAdmin = Role::firstOrCreate(['name' => 'admin']);
 
         $adminPermissions = [
-            'browse permission', 'read permission', 'edit permission', 'add permission', 'delete permission',
-            'browse role', 'read role', 'edit role', 'add role', 'delete role',
-            'browse user', 'read user', 'edit user', 'add user', 'delete user',
-            'browse post', 'read any post', 'read own post',
-            'read any unpublished post', 'read own unpublished post',
-            'edit any post', 'edit own post', 'add post', 'delete any post',
-            'delete own post', 'publish any post', 'publish own post', 'restore any post',
-            'restore own post', 'trash any post', 'trash own post',
+            'permission browse',
+            'permission read',
+            'permission edit',
+            'permission add',
+            'permission delete',
+            'role browse',
+            'role read',
+            'role edit',
+            'role add',
+            'role delete',
+            'user browse',
+            'user read',
+            'user edit',
+            'user add',
+            'user delete',
+            'post browse',
+            'post any read',
+            'post own read',
+            'post any read unpublished',
+            'post own read unpublished',
+            'post any edit',
+            'post own edit',
+            'post add ',
+            'post any delete',
+            'post own delete',
+            'post any publish',
+            'post own publish',
+            'post any restore',
+            'post own restore',
+            'post any trash',
+            'post own trash',
         ];
 
         foreach ($adminPermissions as $key => $permission) {
@@ -120,14 +143,36 @@ class RoleSeeder extends Seeder
         $roleStaff = Role::firstOrCreate(['name' => 'staff']);
 
         $staffPermissions = [
-            'browse user', 'read user', 'edit user', 'add user', 'delete user',
-            'browse permission', 'read permission',
-            'browse role', 'read role',
-            'browse post', 'read any post', 'read own post',
-            'read any unpublished post', 'read own unpublished post',
-            'edit any post', 'edit own post', 'add post', 'delete any post',
-            'delete own post', 'publish any post', 'publish own post', 'restore any post',
-            'restore own post', 'trash any post', 'trash own post',
+            'user browse',
+            'user read',
+            'user edit',
+            'user add',
+            'user delete',
+
+            'permission browse',
+            'permission read',
+
+            'role browse',
+            'role read',
+
+            'post browse',
+            'post add',
+
+            'post any read',
+            'post any read unpublished',
+            'post any edit',
+            'post any delete',
+            'post any publish',
+            'post any restore',
+            'post any trash',
+
+            'post own restore',
+            'post own read',
+            'post own read unpublished',
+            'post own delete',
+            'post own edit',
+            'post own publish',
+            'post own trash',
         ];
 
         foreach ($staffPermissions as $key => $permission) {
@@ -144,10 +189,16 @@ class RoleSeeder extends Seeder
         $roleClient = Role::firstOrCreate(['name' => 'client']);
 
         $clientPermissions = [
-            'browse post', 'read own post',
-            'read own unpublished post',
-            'edit own post', 'add post', 'delete own post',
-            'publish own post', 'restore own post', 'trash own post',
+            'post browse',
+            'post add',
+
+            'post own read',
+            'post own read unpublished',
+            'post own edit',
+            'post own delete',
+            'post own publish',
+            'post own restore',
+            'post own trash',
         ];
 
         foreach ($clientPermissions as $key => $permission) {

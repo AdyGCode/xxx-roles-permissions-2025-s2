@@ -37,7 +37,7 @@
                         @endhasanyrole
 
                     @endauth
-                    @can('delete-role')
+                    @can('role-delete')
                         <x-nav-link :href="route('admin.roles.index')" :active="request()->routeIs('admin.*')">
                             {{ __('Demo') }}
                         </x-nav-link>

@@ -16,7 +16,7 @@
                 </a>
             </h3>
 
-            @can('add-role')
+            @can('role-add')
                 <a href="{{ route('admin.roles.create') }}"
                    class="hover:bg-blue-500 hover:text-white transition border p-2 text-center rounded">
                     <i class="fa-solid fa-user-plus"></i>
@@ -56,21 +56,21 @@
 
                         <td class="px-3 py-1 whitespace-nowrap flex gap-2 w-full">
 
-                            @can('read-role')
+                            @can('role-read')
                                 <a href="{{ route('admin.roles.show', $role) }}"
                                    class="hover:text-green-500 transition border p-2 text-center rounded">
                                     <i class="fa-solid fa-user-tag"></i>
                                 </a>
                             @endcan
 
-                            @can('edit-role')
+                            @can('role-edit')
                                 <a href="{{ route('admin.roles.edit', $role) }}"
                                    class="hover:text-blue-500 transition border p-2 text-center rounded">
                                     <i class="fa-solid fa-user-cog"></i>
                                 </a>
                             @endcan
 
-                            @can('delete-role')
+                            @can('role-delete')
                                 <a href="{{ route('admin.roles.delete', $role) }}"
                                    class="hover:text-red-500 transition border p-2 text-center rounded">
                                     <i class="fa-solid fa-user-slash"></i>
