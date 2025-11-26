@@ -16,7 +16,8 @@
                 </a>
             </h3>
 
-            @can('role-add')
+
+        @can('role-add')
                 <a href="{{ route('admin.roles.create') }}"
                    class="hover:bg-blue-500 hover:text-white transition border p-2 text-center rounded">
                     <i class="fa-solid fa-user-plus"></i>

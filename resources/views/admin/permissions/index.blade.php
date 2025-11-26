@@ -9,11 +9,19 @@
 
         <header class="flex justify-between gap-4">
             <h3 class="text-2xl font-bold text-zinc-700">
-                <a href="{{ route('admin.roles.index') }}" class="hover:text-zinc-500">
+                <a href="{{ route('admin.permissions.index') }}" class="hover:text-zinc-500">
                     <i class="fa-solid fa-file-shield pr-2"></i>
                     {{__('Permissions')}}
                 </a>
             </h3>
+
+
+            <form action="{{ route('admin.permissions.index') }}" method="GET">
+                <x-text-input id="Search" name="search" value="{{ old('search') ?? $search }}"></x-text-input>
+                <x-primary-button type="submit">Search</x-primary-button>
+                <x-secondary-link-button href="{{ route('admin.permissions.index') }}">Show All
+                </x-secondary-link-button>
+            </form>
 
             <a href="{{ route('admin.roles.index') }}"
                class="hover:bg-blue-500 hover:text-white transition border p-2 text-center rounded">
@@ -48,34 +56,36 @@
 
                         <td class="px-3 py-1 whitespace-nowrap w-1/8">
 
-                            <form action="{{ route('admin.permissions.index', $permission) }}"
-                                  method="post"
-                                  class="grid grid-cols-3 gap-2 w-full">
-                                @csrf
-                                @method('delete')
+                            {{--                            <form action="{{ route('admin.permissions.index', $permission) }}"--}}
+                            {{--                                  method="post"--}}
+                            {{--                                  class="grid grid-cols-3 gap-2 w-full">--}}
+                            {{--                                @csrf--}}
+                            {{--                                @method('delete')--}}
+                            {{--                                --}}
+                            {{--                                @can('show-permission')--}}
+                            {{--                                    <a href="{{ route('admin.permissions.show', $permission) }}"--}}
+                            {{--                                       class="hover:text-green-500 transition border p-2 text-center rounded">--}}
+                            {{--                                        <i class="fa-solid fa-user-tag"></i>--}}
+                            {{--                                    </a>--}}
+                            {{--                                @endcan--}}
 
-                                @can('show-permission')
-                                    <a href="{{ route('admin.permissions.show', $permission) }}"
-                                       class="hover:text-green-500 transition border p-2 text-center rounded">
-                                        <i class="fa-solid fa-user-tag"></i>
-                                    </a>
-                                @endcan
+                            {{--                                @can('permission-edit')--}}
+                            {{--                                    <a href="{{ route('admin.permissions.edit', $permission) }}"--}}
+                            {{--                                       class="hover:text-blue-500 transition border p-2 text-center rounded">--}}
+                            {{--                                        <i class="fa-solid fa-user-cog"></i>--}}
+                            {{--                                    </a>--}}
+                            {{--                                @endcan--}}
 
-                                @can('permission-edit')
-                                    <a href="{{ route('admin.permissions.edit', $permission) }}"
-                                       class="hover:text-blue-500 transition border p-2 text-center rounded">
-                                        <i class="fa-solid fa-user-cog"></i>
-                                    </a>
-                                @endcan
+                            {{--                                @can('permission-delete')--}}
+                            {{--                                    <button type="submit"--}}
+                            {{--                                            class="hover:text-red-500 transition border p-2 text-center rounded">--}}
+                            {{--                                        <i class="fa-solid fa-user-slash"></i>--}}
+                            {{--                                    </button>--}}
+                            {{--                                @endcan--}}
 
-                                @can('permission-delete')
-                                    <button type="submit"
-                                            class="hover:text-red-500 transition border p-2 text-center rounded">
-                                        <i class="fa-solid fa-user-slash"></i>
-                                    </button>
-                                @endcan
+                            {{--                            </form>--}}
 
-                            </form>
+                            No actions available
                         </td>
 
                     </tr>

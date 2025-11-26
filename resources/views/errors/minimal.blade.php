@@ -52,6 +52,10 @@
                         @auth()
                             <x-secondary-link-button href="{{route('dashboard')}}">Dashboard</x-secondary-link-button>
 
+                            @hasrole('admin')
+                            |
+                            @endhasrole
+
                             @hasanyrole('admin|super-admin|staff')
                             <x-secondary-link-button href="{{route('admin.index')}}">Admin</x-secondary-link-button>
                             @endhasanyrole

@@ -27,11 +27,28 @@ class PermissionManagementController extends Controller implements HasMiddleware
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $permissions = Permission::orderBy('name')->paginate(10);
+        $validated = $request->validate([
+            'search' => [
+                'nullable',
+                'max:64',
+                'string'
+            ],
+        ]);
+
+        $search = $validated['search'] ?? '';
+
+        // $permissions = Permission::where('name', 'like', "%{$search}%")
+        //                ->orWhere('guard_name', 'like', $search)
+        // is replaced by the whereAny!
+        $permissions = Permission::whereAny(['guard_name', 'name'], 'like', "%{$search}%")
+            ->orderBy('name')
+            ->paginate(10);
+
         return view('admin.permissions.index')
-            ->with('permissions', $permissions);
+            ->with('permissions', $permissions)
+            ->with('search', $search);
     }
 
     /**
