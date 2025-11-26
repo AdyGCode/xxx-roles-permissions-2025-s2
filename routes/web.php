@@ -35,9 +35,13 @@ Route::middleware(['auth', 'verified', 'role:staff|admin|super-admin'])
 
                 Route::resource('permissions', PermissionManagementController::class);
 
-                Route::post('/roles/{role}/permissions',
-                    [RoleManagementController::class, 'givePermission'])
-                    ->name('roles.permissions');
+                Route::middleware(['auth', 'verified', 'permission:role-permission-update'])
+                    ->group(function () {
+
+                        Route::post('/roles/{role}/permissions',
+                            [RoleManagementController::class, 'givePermission'])
+                            ->name('roles.permissions');
+                    });
 
                 Route::get('roles/{role}/delete', [RoleManagementController::class, 'delete'])
                     ->name('roles.delete');

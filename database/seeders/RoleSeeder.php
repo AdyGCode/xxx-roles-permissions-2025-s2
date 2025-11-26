@@ -33,6 +33,7 @@ class RoleSeeder extends Seeder
             'role edit',
             'role add',
             'role delete',
+            'role permission update',
 
             'user browse',
             'user read',
