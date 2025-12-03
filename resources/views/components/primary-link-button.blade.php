@@ -6,6 +6,7 @@
         'class' => 'inline-flex items-center
                     px-4 py-2
                     bg-gray-800
+                    dark:bg-gray-600 dark:text-gray-100
                     border border-transparent
                     rounded-md
                     font-semibold text-xs text-white uppercase tracking-widest

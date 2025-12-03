@@ -1,7 +1,7 @@
 <x-app-layout>
 
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+        <h2 class="font-semibold text-xl leading-tight ">
             {{ __('Welcome to') }} {{ config('app.name', 'Laravel') }}
         </h2>
     </x-slot>
@@ -9,15 +9,15 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 flex flex-col gap-8">
 
-            <section class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <section class="overflow-hidden bg-gray-50 sm:grid sm:grid-cols-3">
-                    <div class="p-8  col-span-1">
+            <section class="bg-white overflow-hidden shadow-sm sm:rounded-lg dark:bg-gray-800 dark:text-gray-200">
+                <section class="o sm:grid sm:grid-cols-3">
+                    <div class="p-8 col-span-1">
                         <div class="mx-auto max-w-xl text-center ltr:sm:text-left rtl:sm:text-right">
-                            <h2 class="text-2xl font-bold text-gray-900 md:text-3xl">
+                            <h2 class="text-2xl font-bold  md:text-3xl">
                                 Join the amazing community!
                             </h2>
 
-                            <p class="hidden text-gray-500 md:mt-4 md:block">
+                            <p class="hidden text-gray-500 dark:text-gray-400 md:mt-4 md:block">
                                 {!! $inspireMe !!}
                             </p>
 
@@ -42,15 +42,16 @@
                 </section>
             </section>
 
-            <section class="bg-white shadow overflow-hidden rounded-lg lg:grid lg:place-content-center">
+            <section
+                class="bg-white shadow overflow-hidden rounded-lg lg:grid lg:place-content-center dark:bg-gray-800 dark:text-gray-200">
                 <div class="mx-auto w-screen max-w-7xl px-4 py-16 sm:px-6 sm:py-24 md:grid md:grid-cols-2 md:items-center
   md:gap-4 lg:px-8 lg:py-32">
                     <div class="max-w-prose text-left mx-8">
-                        <h3 class="text-4xl font-bold text-gray-900 sm:text-5xl">
+                        <h3 class="text-4xl font-bold text-gray-900 dark:text-gray-200 sm:text-5xl">
                             Demonstration of using Spatie roles and Permissions
                         </h3>
 
-                        <ul class="mt-4 text-base text-pretty text-gray-700 sm:text-lg/relaxed">
+                        <ul class="mt-4 text-base text-pretty text-gray-700 dark:text-gray-400 sm:text-lg/relaxed">
 
                             <li class="list-disc ml-8"> Role management (BREAD/CRUD)</li>
                             <li class="list-disc ml-8"> Permission browsing/Reading</li>
@@ -63,14 +64,16 @@
                         </ul>
 
                         <div class="mt-4 flex gap-4 sm:mt-6">
-                            <x-primary-link-button href="{{ route('register') }}">Register</x-primary-link-button>
+                            <x-primary-link-button href="{{ route('register') }}"
+                                                   class="bg-emerald-600! hover:bg-emerald-700!">Register
+                            </x-primary-link-button>
                             <x-secondary-link-button href="{{ route('about') }}">Learn More</x-secondary-link-button>
                         </div>
                     </div>
 
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800.158 482.261" class="mx-auto hidden max-w-md
-      text-gray-900 md:block" role="img" artist="Katerina Limpitsouni"
-                         source="https://undraw.co/">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800.158 482.261"
+                         class="mx-auto hidden max-w-md text-gray-900 md:block"
+                         role="img" artist="Katerina Limpitsouni" source="https://undraw.co/">
                         <g transform="translate(-542.001 -294)">
                             <path
                                 d="M306.318,109.79a76.213,76.213,0,1,0-84.73,89L253.2,292.055l62.946-74.811s-19.6-17.5-32.264-38.909a76.13,76.13,0,0,0,22.44-68.545Z"
@@ -116,7 +119,7 @@
                 </div>
             </section>
 
-            <section class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+            <section class="bg-white dark:bg-gray-900  overflow-hidden shadow-sm sm:rounded-lg">
 
                 <h2 class="text-xl p-6 bg-black text-white">Users</h2>
 
