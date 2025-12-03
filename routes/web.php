@@ -14,6 +14,26 @@ Route::get('/', [StaticPageController::class, 'home'])
 Route::get('about', [StaticPageController::class, 'about'])
     ->name('about');
 
+//
+//
+//Route::get('posts', [PostController::class, 'index'])->name('posts.index');
+//Route::get('posts/create', [PostController::class, 'create'])->name('posts.create'); // http://DOMAIN/posts/create
+//Route::get('posts/{id}/edit}', [PostController::class, 'edit'])->name('posts.edit'); //http://DOMAIN/posts/123/edit
+//Route::get('posts/{id}/delete}', [PostController::class, 'delete'])->name('posts.delete'); //http://DOMAIN/posts/123/delete (delete confirmation page)
+//Route::get('posts/{id}', [PostController::class, 'show'])->name('posts.show'); // http://DOMAIN/posts/123
+//
+//Route::put('posts', [PostController::class, 'update'] )->name('posts.update'); // OR put
+//Route::patch('posts', [PostController::class, 'update'] )->name('posts.update');
+//Route::put('posts', [PostController::class, 'store'] )->name('posts.store');
+//Route::delete('posts/{id}', [PostController::class, 'destory'] )->name('posts.destroy');
+//
+//
+//Route::get('posts/{id}/delete}', [PostController::class, 'delete'])->name('posts.delete'); //http://DOMAIN/posts/123/delete (delete confirmation page)
+//Route::resource('posts', PostController::class)
+//    ->only(['index', 'edit']);
+
+
+
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'dashboard'])
         ->name('dashboard');
